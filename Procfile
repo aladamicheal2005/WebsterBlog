@@ -1,1 +1,1 @@
-web: gunicorn WebsterBlog.wsgi --log-file -
+web: gunicorn WebsterBlog.wsgi

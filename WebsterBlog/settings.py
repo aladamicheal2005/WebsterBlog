@@ -44,13 +44,14 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoseMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'WebsterBlog.urls'
@@ -79,7 +80,8 @@ WSGI_APPLICATION = 'WebsterBlog.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': dj_database_url.config()
+        'ENGINE': 'django.db.backends.postgreql_psycopg2',
+        'NAME': 'ciba',
         
     }
 }

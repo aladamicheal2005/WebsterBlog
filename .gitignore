@@ -1,6 +1,6 @@
 # Distributions / packaging . python
 venv/
-env/
+Blogenv/
 *.sqlite3
 .idea/
 
