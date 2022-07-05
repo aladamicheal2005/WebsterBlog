@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% for coment in pro.comment.all %}
+    <h3>{{coment.name}}</h3>
+    <h3>{{coment.body}}</h3>
+    <h3>{{com.Date_added}}</h3>
+    {% endfor %} 
+    <h1>Comment</h1>
+    
+    {% for comment in prol.comments.all %}
+         <article>
+            <strong>{{comment.name}}</strong>-{{comment.Date_added}}<br>
+              <b>{{comment.body}}</b><br>
+              <br>
+
+         </article>
+         {% endfor %}
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="comment" id="comment" placeholder="comment">
+        <button type="submit">Comment</button>
+    </form>
+</body>
+</html>

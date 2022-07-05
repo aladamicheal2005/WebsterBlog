@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The full detailed post of {{prol.Author | title}}</title>
+</head>
+<body>
+   
+    <div class="top">
+        <div class="home"><a href="{% url 'homepage' %}" ><svg id="Layer_1" class='des' data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 122.88"><defs><style>.cls-1{fill-rule:evenodd;}</style></defs><title>back</title><path class="cls-1" d="M61.44,0A61.51,61.51,0,1,1,18,18,61.25,61.25,0,0,1,61.44,0Zm5,45.27A7.23,7.23,0,1,0,56.14,35.13L35,56.57a7.24,7.24,0,0,0,0,10.15l20.71,21A7.23,7.23,0,1,0,66.06,77.62l-8.73-8.87,24.86-.15a7.24,7.24,0,1,0-.13-14.47l-24.44.14,8.84-9Z"/></svg>Go Home</a></div>
+        <span class="centre">Detailed feed for {{prol.Author | title}}</span>
+    </div>
+    <p><span class="author">@{{prol.Author | title}}</span><br><br>
+        <img src={{prol.image.url}} width="700" height="400"/><br>
+        <span class='text'>{{prol.Text}}</span><br><br>
+        <span class='detail'>{{prol.Detail | title}}</span><br>
+        <span class="date">Date posted: {{prol.date}}</span></p>
+        <hr>
+            {% if not prol.comments.all %}
+            <h4>No comments yet</h4>
+            <h5>Be the first to comment on this post</h5>
+            {% endif %}
+            <h3>Check out suggestions from people</h3>
+         {% for comment in prol.comments.all %}
+          
+         <article>
+              <strong>{{comment.body}}</strong> --{{comment.Date_added}}
+        
+              
+
+         </article><br><br>
+         {% endfor %}
+        <form method="POST" action="{% url 'comment' prol.pk %}">
+            {% csrf_token %}
+            <input type="text" name="comment" id="comment" placeholder="comment">
+            <button type="submit">Comment</button>
+        </form>
+        <style>
+            .poiu{
+                text-decoration: none;
+                color: black;
+            }
+            article{
+                text-align: center;
+                margin: 0 auto;
+                border: hidden;
+                width: fit-content;
+                height: fit-content;
+                border-radius: 5px;
+                padding: 10px;
+                box-shadow: 0px 10px 20px 0px rgba(0, 0 , 0 , 0.9);
+            }
+        #comment{
+             font-size: 20px;
+             padding: 5px;
+             border-radius: 8px;
+        }
+        button{
+            font-size: 20px;
+            padding: 5px;
+            border-radius: 8px;
+            background-color: blue;
+            color: white;
+        }
+        </style>
+       
+      
+
+    
+   
+       
+     
+</body>
+<style>
+    .des{
+        width: 20%;
+        height: 30px;
+    }
+    .name{
+        color: rgba(255, 255, 255, 0.798);
+        font-size: large;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        
+    }
+
+    img{
+        border-radius: 4px;
+        outline: 2px blue;
+        width: 60%;
+        height: auto;
+    }
+    a{
+        text-decoration: none;
+        color: white;
+    }
+    
+    body{
+        margin: 0;
+        text-align: center;
+        background-color: rgba(0, 0, 255, 0.411);
+    }
+    .top{
+        padding: 20px;
+        background-color: red;
+        color: black;
+        position: sticky;
+        top: 0;
+        height: 25px;
+        bottom: 15;
+        z-index: auto;
+    }
+    .home{
+        font-size: 23px;
+        font-weight: bold;
+        color: white;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        float: left;
+    }
+    .centre{
+        font-weight: bolder;
+        font-size: 27px;
+        float: right;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    p{
+        font-size: 25px;
+        font-weight: bold;
+        color: black;
+    }
+    .text{
+        font-size: 28px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        text-align: center;
+        font-weight: bolder;
+    }
+    .detail{
+        font-weight: bold;
+    }
+    .date{
+        color: rgba(0, 0, 0, 0.712);
+        font-size: 23px;
+    }
+ 
+
+
+
+/* design for mini screen */
+@media screen and (max-width: 600px) {
+    
+    img{
+       width: 100%;
+       height: auto;
+  }
+  
+}
+@media screen and (max-width: 600px) {
+    
+    .home{
+       font-size: 20px;
+ 
+  }
+  
+}
+@media screen and (max-width: 600px) {
+    
+    .centre{
+     display: none;
+    
+  }
+  
+}
+/* end of design for mini screen */
+
+
+/* design for tablet screen */
+@media screen and (max-width: 992px) {
+    
+    img{
+       width: 100%;
+       height: auto;
+  }
+  
+}
+@media screen and (max-width: 992px) {
+    
+    .home{
+       font-size: 25px;
+       
+  }
+  
+}
+@media screen and (max-width: 992px) {
+    
+    .centre{
+     font-size: 27px;
+     
+  }
+  
+}
+/* end of design for tablet screen */
+
+
+</style>
+</html>

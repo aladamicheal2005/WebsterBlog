@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webster Upload</title>
+</head>
+<h1>Create Post</h1>
+<body>
+    <form  enctype="multipart/form-data" method="POST">
+        {% csrf_token %}
+        {{ form.media }}
+        {{form.as_p}}
+        <button type="submit">Post</button>
+    </form>
+</body>
+</html>

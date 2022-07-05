@@ -1,0 +1,72 @@
+{% include 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings page</title>
+</head>
+<body>
+    {% block content %}
+    <div class="classify">
+        <ul class="carrycenter">
+            <li class="thatlist">
+                <a href="/about" class='air'>About </a>
+                </li>
+                <li class="thatlist">
+                    <a href="/settings" class='air'>
+                    Settings
+                    </a>
+                    </li>
+                    <li class="thatlist">
+                        <a href="{% url 'ScheduleApp' %}" class='air'>NotePadd </a>
+                        </li>
+            <li class="thatlist">
+            <a href="/question" class='air'> Questions</a>
+            </li>
+                    <li class="thatlist">
+                        <a href="#" class="air">Contact Webster</a>
+                        </li>
+                    <li class="thatlist">
+                        <a href="{% url 'logout' %}" class='aire'>logout </a>
+                        </li>
+
+            </ul><br><br>
+    </div>
+    {% endblock %}
+    <style>
+        .carrycenter{
+            display: block;
+            margin-top: 7px;
+        }
+        .thatlist{
+            padding: 15px;
+            font-size: 25px;
+            font-weight: bold;
+            list-style: none;
+            display: block;
+        }
+        .thatlist:hover{
+            color: blue;
+            transform: scale(0.9);
+            transition-delay: 1s;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        body{
+            margin: 0;
+        }
+        .aire{
+            color: red;
+        }
+        .aire:hover{
+            color: red;
+            font-size: 32px;
+            font-weight: bolder;
+        }
+    </style>
+</body>
+</html>
