@@ -79,8 +79,8 @@ WSGI_APPLICATION = 'WebsterBlog.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ciba',
+        'ENGINE': dj_database_url.config()
+        
     }
 }
 
